@@ -44,11 +44,9 @@ class MenuFragment : Fragment() {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())
         val database = AppDatabase.getDatabase(requireContext())
 
-        // Ambil email pengguna dari SharedPreferences
         val sharedPref = requireContext().getSharedPreferences("RotikuPrefs", Context.MODE_PRIVATE)
         val userEmail = sharedPref.getString("userEmail", "") ?: ""
 
-        // Setup RecyclerView
         adapter = BakeryAdapter { item ->
             if (userEmail.isEmpty()) {
                 Toast.makeText(context, "Sesi pengguna tidak ditemukan, silakan login ulang", Toast.LENGTH_SHORT).show()
@@ -56,7 +54,6 @@ class MenuFragment : Fragment() {
                 return@BakeryAdapter
             }
 
-            // Request location permission
             if (ActivityCompat.checkSelfPermission(
                     requireContext(),
                     Manifest.permission.ACCESS_FINE_LOCATION
@@ -70,7 +67,6 @@ class MenuFragment : Fragment() {
                 return@BakeryAdapter
             }
 
-            // Get location and save order
             fusedLocationClient.lastLocation.addOnSuccessListener { location ->
                 if (location != null) {
                     lifecycleScope.launch {
@@ -93,15 +89,12 @@ class MenuFragment : Fragment() {
         binding.rvBakeryItems.layoutManager = LinearLayoutManager(context)
         binding.rvBakeryItems.adapter = adapter
 
-        // Load bakery items
         lifecycleScope.launch {
             val items = database.bakeryDao().getAllBakeryItems()
             adapter.submitList(items)
         }
 
-        // Back button (logout)
         binding.ivBack.setOnClickListener {
-            // Hapus sesi pengguna
             sharedPref.edit().clear().apply()
             findNavController().navigate(R.id.action_menuFragment_to_loginFragment)
         }

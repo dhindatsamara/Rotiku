@@ -8,7 +8,6 @@
     android:background="@color/beige"
     tools:context=".MainActivity">
 
-    <!-- Nama Aplikasi -->
     <TextView
         android:id="@+id/tvAppName"
         android:layout_width="wrap_content"
@@ -23,7 +22,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Tagline -->
     <TextView
         android:id="@+id/tvTagline"
         android:layout_width="wrap_content"
@@ -37,7 +35,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvAppName" />
 
-    <!-- Logo -->
     <ImageView
         android:id="@+id/ivLogo"
         android:layout_width="300dp"
@@ -50,7 +47,6 @@
         app:layout_constraintBottom_toTopOf="@id/btnStart"
         app:layout_constraintVertical_bias="0.4" />
 
-    <!-- Tombol Start -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnStart"
         android:layout_width="0dp"
@@ -72,7 +68,6 @@
         app:layout_constraintTop_toBottomOf="@id/ivLogo"
         app:layout_constraintVertical_bias="0.3" />
 
-    <!-- Fragment Container -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"

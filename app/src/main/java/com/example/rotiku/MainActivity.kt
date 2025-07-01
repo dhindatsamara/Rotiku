@@ -22,15 +22,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Initialize NavController
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
 
-        // Set FragmentContainerView invisible initially
         binding.navHostFragment.isVisible = false
 
-        // Insert dummy data
         lifecycleScope.launch {
             val database = AppDatabase.getDatabase(this@MainActivity)
             database.bakeryDao().insertUser(User(email = "admin@rotiku.com", password = "admin123", userType = "Admin"))
@@ -40,7 +37,6 @@ class MainActivity : AppCompatActivity() {
             database.bakeryDao().insertBakeryItem(BakeryItem(name = "Donat", price = 10000.0, description = "Donat gula empuk"))
         }
 
-        // Handle Start button click
         binding.btnStart.setOnClickListener {
             binding.navHostFragment.isVisible = true
             binding.tvAppName.isVisible = false

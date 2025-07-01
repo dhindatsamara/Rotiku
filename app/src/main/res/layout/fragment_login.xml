@@ -8,7 +8,6 @@
     android:background="@color/beige"
     tools:context=".LoginFragment">
 
-    <!-- Form Container -->
     <LinearLayout
         android:id="@+id/formLayout"
         android:layout_width="0dp"
@@ -25,7 +24,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.5">
 
-        <!-- Title -->
         <TextView
             android:id="@+id/tvLogin"
             android:layout_width="match_parent"
@@ -38,7 +36,6 @@
             android:textSize="33sp"
             android:textStyle="bold" />
 
-        <!-- Email -->
         <TextView
             android:id="@+id/tvEmail"
             android:layout_width="match_parent"
@@ -74,7 +71,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Password -->
         <TextView
             android:id="@+id/tvPassword"
             android:layout_width="match_parent"
@@ -110,7 +106,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Login Button -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/loginButton"
             android:layout_width="match_parent"
@@ -122,7 +117,6 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <!-- Signup Link -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

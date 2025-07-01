@@ -30,7 +30,6 @@ class SignupFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Setup dropdown for user type
         val userTypes = resources.getStringArray(R.array.user_types)
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, userTypes)
         binding.userTypeInput.setAdapter(adapter)
@@ -46,25 +45,21 @@ class SignupFragment : Fragment() {
             val confirmPassword = binding.confirmPasswordInput.text.toString().trim()
             val userType = binding.userTypeInput.text.toString().trim()
 
-            // Validate inputs
             if (email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || userType.isEmpty()) {
                 Toast.makeText(context, "Silakan isi semua kolom", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            // Validate user type
             if (userType !in userTypes) {
                 Toast.makeText(context, "Pilih tipe pengguna yang valid (Buyer atau Admin)", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            // Validate password match
             if (password != confirmPassword) {
                 Toast.makeText(context, "Kata sandi tidak cocok", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            // Validate email format (simple check)
             if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 Toast.makeText(context, "Format email tidak valid", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener

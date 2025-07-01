@@ -8,7 +8,6 @@
     android:background="@color/beige"
     tools:context=".SignupFragment">
 
-    <!-- Form Container -->
     <LinearLayout
         android:id="@+id/formLayout"
         android:layout_width="0dp"
@@ -25,7 +24,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.5">
 
-        <!-- Title -->
         <TextView
             android:id="@+id/tvSignup"
             android:layout_width="match_parent"
@@ -38,7 +36,6 @@
             android:textSize="33sp"
             android:textStyle="bold" />
 
-        <!-- Email -->
         <TextView
             android:id="@+id/tvEmail"
             android:layout_width="match_parent"
@@ -72,7 +69,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Password -->
         <TextView
             android:id="@+id/tvPassword"
             android:layout_width="match_parent"
@@ -108,7 +104,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Confirm Password -->
         <TextView
             android:id="@+id/tvConfirmPassword"
             android:layout_width="match_parent"
@@ -144,7 +139,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- User Type -->
         <TextView
             android:id="@+id/tvUserType"
             android:layout_width="match_parent"
@@ -181,7 +175,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Signup Button -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/signupButton"
             android:layout_width="match_parent"
@@ -193,7 +186,6 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <!-- Login Link -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -219,7 +211,6 @@
                 android:textColor="@color/brown"
                 android:textSize="14sp"
                 android:textStyle="bold" />
-
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

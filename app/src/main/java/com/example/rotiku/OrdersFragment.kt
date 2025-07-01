@@ -38,7 +38,6 @@ class OrdersFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Periksa sesi pengguna
         val sharedPref = requireContext().getSharedPreferences("RotikuPrefs", Context.MODE_PRIVATE)
         val userType = sharedPref.getString("userType", "") ?: ""
         if (userType != "Admin") {
@@ -53,7 +52,6 @@ class OrdersFragment : Fragment() {
         binding.rvOrders.layoutManager = LinearLayoutManager(context)
         binding.rvOrders.adapter = adapter
 
-        // Load orders and bakery items
         lifecycleScope.launch {
             val orders = database.bakeryDao().getAllOrders()
             val items = database.bakeryDao().getAllBakeryItems().associateBy { it.id }
@@ -65,7 +63,6 @@ class OrdersFragment : Fragment() {
             })
         }
 
-        // Back button (logout)
         binding.ivBack.setOnClickListener {
             sharedPref.edit().clear().apply()
             findNavController().navigate(R.id.action_ordersFragment_to_loginFragment)
